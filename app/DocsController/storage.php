@@ -1,5 +1,5 @@
 <?php
-include('../meadleware/auth.php');
+include_once('../meadleware/auth.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fileName = $_POST['file-name'];
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fileName .= '.txt';
     }
 
-    $directory = '../../database/files/';
+    $directory = '../../uploads/files/';
 
     $filePath = $directory . $fileName;
 

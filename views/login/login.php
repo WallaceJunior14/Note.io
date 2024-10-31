@@ -24,8 +24,16 @@
                 <input type="email" name="email" id="email" class="h-[3rem] rounded-lg px-3 mb-5">
                 <label for="password" class="font-bold text-lg mb-3">Password</label>
                 <input type="password" name="password" id="password" class="h-[3rem] rounded-lg px-3 mb-5">
-                <button type="submit" class="self-end h-[3rem] w-[10rem] bg-slate-100 hover:bg-slate-300 rounded-lg transition-shadow font-bold" >Login</button>
+                <button type="submit" class="self-end h-[3rem] w-[10rem] bg-slate-100 hover:bg-slate-300 rounded-lg transition-shadow font-bold">Login</button>
             </form>
+            
+            <!-- Link para a tela de cadastro -->
+            <div class="mt-5 text-center">
+                <p class="text-sm text-gray-700">
+                    Não tem uma conta? 
+                    <a href="./cadastro_usuario.php" class="text-orange-500 hover:underline">Cadastre-se</a>
+                </p>
+            </div>
         </div>
     </section>
 </body>

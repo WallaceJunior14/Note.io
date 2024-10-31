@@ -1,9 +1,10 @@
 <?php
+include_once('../meadleware/auth.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fileName = $_POST['file-name'];
     $content = $_POST['content'];
-    $filePath = '../../database/files/' . $fileName;
+    $filePath = '../../uploads/files/' . $fileName;
 
     // Salva o arquivo com o novo conteúdo
     $file = fopen($filePath, 'w');

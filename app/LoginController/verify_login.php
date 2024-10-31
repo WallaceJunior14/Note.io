@@ -3,16 +3,41 @@
 session_start();
 ini_set('display_errors', true);
 
-$email = $_POST["email"];
-$password = $_POST["password"];
+include_once("../../config/database.php");
 
-if ($email === "admin@admin.com"  && $password === "123") {
-    $_SESSION['login'] = $email;
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = filter_var(htmlspecialchars($_POST['email']));
+    $password = filter_var(htmlspecialchars($_POST['password']));
 
-    header("location: ../../index.php");
-} else {
-    unset($_SESSION['login']);
-    header("location: ../../views/login/login.php?error=login");
+    if (empty($email) || empty($password)) {
+        die(json_encode(["error" => ["message" => "Email e senha devem estar preenchidos"]]));
+    }
+
+    $conn = getConnection();
+
+    $query = "SELECT * FROM user WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['login'] = $user['name'];
+            echo json_encode(["success" => ["message" => "Login realizado com sucesso"]]);
+            header("Location: ../../index.php");
+        } else {
+            echo json_encode(["error" => ["message" => "Senha incorreta"]]);
+            header("Location: /Noteio/views/login/login.php");
+        }
+    } else {
+        echo json_encode(["error" => ["message" => "Usuário não encontrado"]]);
+        header("Location: /Noteio/views/login/login.php?error=login");
+    }
+
+    $stmt->close();
+    $conn->close();
 }
-
 ?>

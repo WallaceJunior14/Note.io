@@ -1,5 +1,5 @@
 <?php
-include('../meadleware/auth.php');
+include_once('../meadleware/auth.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['file']['name']) && count($_FILES['file']['name']) > 0) {
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $extension = strtolower($extension);
 
                 if ($extension === 'txt') {
-                    $directory = '../../database/files/';
+                    $directory = '../../uploads/files/';
 
                     // Mover arquivo para o diretório
                     if (move_uploaded_file($file_tmp, $directory . $file_name)) {

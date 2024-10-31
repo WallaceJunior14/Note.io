@@ -1,5 +1,5 @@
 <?php
-include('./app/meadleware/auth.php');
+include_once('./app/meadleware/auth.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +19,12 @@ include('./app/meadleware/auth.php');
         <!-- Link para criar novo arquivo -->
         <div class="text-center my-8">
             <a href="./views/docs/create.php" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">Criar Novo Arquivo</a>
-            <a href="./views/docs/upload.php" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">Uploade de um Arquivo</a>
+            <a href="./views/docs/upload.php" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">Upload de um Arquivo</a>
         </div>
 
         <!-- Verificar se há arquivos na pasta -->
         <?php
-        $directory = './database/files/';
+        $directory = './uploads/files/';
         $files = glob($directory . "*.txt");
 
         if (count($files) > 0) {

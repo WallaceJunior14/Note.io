@@ -1,11 +1,11 @@
 <?php
-include('../meadleware/auth.php');
+include_once('../meadleware/auth.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fileName = $_POST['file'];
 
     // Caminho completo do arquivo
-    $filePath = '../../database/files/' . $fileName;
+    $filePath = '../../uploads/files/' . $fileName;
 
     if (file_exists($filePath)) {
         // Excluir o arquivo
