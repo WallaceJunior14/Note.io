@@ -1,5 +1,5 @@
 <?php
-include_once("../meadleware/auth.php");
+include_once("../middleware/auth.php");
 include_once("../../config/database.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

@@ -1,5 +1,5 @@
 <?php
-include_once('../meadleware/auth.php');
+include_once('../middleware/auth.php');
 
 if (isset($_GET['file'])) {
     $fileName = $_GET['file'];

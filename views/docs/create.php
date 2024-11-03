@@ -1,9 +1,9 @@
 <?php
-include('../../app/meadleware/auth.php');
+include('../../app/middleware/auth.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">

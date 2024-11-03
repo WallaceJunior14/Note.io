@@ -1,5 +1,5 @@
 <?php
-include_once('../meadleware/auth.php');
+include_once('../middlewaremiddleware/auth.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['file']['name']) && count($_FILES['file']['name']) > 0) {

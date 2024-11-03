@@ -25,16 +25,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $user = $result->fetch_assoc();
 
         if (password_verify($password, $user['password'])) {
-            $_SESSION['login'] = $user['name'];
+            $_SESSION['login'] = $user;
             echo json_encode(["success" => ["message" => "Login realizado com sucesso"]]);
             header("Location: ../../index.php");
         } else {
             echo json_encode(["error" => ["message" => "Senha incorreta"]]);
-            header("Location: /Noteio/views/login/login.php");
+            header("Location: http://localhost/UTFPR-Web-Servidor/Noteio/views/login/login.php");
         }
     } else {
         echo json_encode(["error" => ["message" => "Usuário não encontrado"]]);
-        header("Location: /Noteio/views/login/login.php?error=login");
+        header("Location: http://localhost/UTFPR-Web-Servidor/Noteio/views/login/login.php?error=login");
     }
 
     $stmt->close();

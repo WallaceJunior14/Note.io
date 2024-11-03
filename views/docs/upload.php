@@ -1,5 +1,5 @@
 <?php
-include('../../app/meadleware/auth.php');
+include('../../app/middleware/auth.php');
 ?>
 
 <!DOCTYPE html>
