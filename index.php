@@ -39,7 +39,7 @@ include_once('./app/DocsController/search_files_with_user_id.php')
                         <div class="flex justify-between">
                             <a href="./views/docs/edit.php?file=<?php echo urlencode($fileName); ?>" class="text-orange-500 hover:text-orange-600 transition">Editar</a>
                             <form action="./app/DocsController/destroy.php" method="POST" class="inline">
-                                <input type="hidden" name="file" value="<?php echo htmlspecialchars($fileName); ?>">
+                                <input type="hidden" name="file_name" value="<?php echo htmlspecialchars($fileName); ?>">
                                 <button type="submit" class="text-red-500 hover:text-red-600 transition">Excluir</button>
                             </form>
                         </div>
